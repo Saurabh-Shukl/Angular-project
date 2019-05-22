@@ -1,0 +1,27 @@
+{
+    "Getuser":[
+        {
+        "Id":101,
+        "DomainName":"Product"
+        },
+        {
+            "Id":102,
+            "DomainName":"Enterprise"
+
+        },
+        {
+            "Id":103,
+            "DomainName":"Contract/pricing"
+
+        },
+        {
+            "Id":104,
+            "DoaminName":"Security"
+
+        },
+        {
+            "Id":105,
+            "DoaminName":"Other"
+        }
+    ]
+}

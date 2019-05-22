@@ -1,0 +1,106 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                    Contact us <small>Feel free to contact us</small></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                     
+                <form #employeeForm="ngForm" (ngSubmit)="submit(employeeForm);employeeForm.reset()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group"[class.has-error]="nameControl.invalid && nameControl.touched"
+                        [class.has-sucess]="nameControl.valid">
+                            <label for="name" class="control-label" >Name:</label>
+                             <input type="name" placeholder="Name"   class="form-control" #nameControl="ngModel" id="name" [(ngModel)]="user.name" required pattern="[a-zA-Z ]*" minlength="10" maxlength="20" name = name>
+                    
+                             <span class ="help-block" *ngIf="nameControl.invalid && nameControl.touched">
+                                <h4>Invalid Name</h4>  
+                                Name Must be only Charcters ,
+                                  Name Must be at least 10 charcter Long
+                                                                   
+                             </span>    
+                            
+                            </div>
+  
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <div [formGroup]="form">
+                                <input formControlName="email" type="text" placeholder="Enter email"  [(ngModel)]="user.email" class="form-control" [ngClass]="{'is-invalid': form.get('email').touched && form.get('email').invalid}" required ngModel="email"/>
+                        <div *ngIf="form.get('email').touched && form.get('email').invalid" class ="invalid-feedback">
+                                <!-- <div *ngIf="form.get('email').errors.required">Email Is Required !</div> -->
+                        <div *ngIf="form.get('email').errors.email">please enter valid email</div>
+                        
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="What is Your Question related to?">Question</label>
+                            <select id="Subject"   class="form-control"  required="required"[(ngModel)]="user.domain"name="Question" >
+                                    <option *ngFor=" let record of getUse" value="{{record.domainId}}">{{record.domainName}}</option>
+
+                                </select>
+                            
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" [(ngModel)]="user.description"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success" (click)="newaddUser()" (click)="employeeForm.form.reset()"  id="btnContactUs" >
+                            Send Message</button>
+
+                    </div>
+                </div>
+                 </form>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+            <address>
+                <strong>Snipe GenNext Academy</strong><br>
+                795 Folsom Ave, Suite 600<br>
+                San Francisco, CA 94107<br>
+                <abbr title="Phone">
+                    P:</abbr>
+                (123) 456-7890
+            </address>
+            <address>
+                <strong>ContactUs Through Mail</strong><br>
+                <a href="mailto:#">saushuk2616@gmail.com</a>
+            </address>
+            </form>
+        </div>
+    </div>
+    </div>
